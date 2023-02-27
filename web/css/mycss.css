@@ -1,0 +1,23 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 02-Jan-2023, 12:45:52 pm
+    Author     : prabhatrai
+*/
+body{
+background: white;
+}
+
+       .jumbotron-fluid{
+           background: #03DAC6;
+           clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 0 0);
+           padding-bottom: 110px;
+
+       }
+   
+       
+       
+   
+
