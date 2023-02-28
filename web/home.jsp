@@ -470,7 +470,7 @@
                                     System.out.println(ss);
                             %>
 <!--                            <option value="<%=cid%>"> <%=ss%></option>-->
-                            <a href="#" class="list-group-item list-group-item-action"><%=ss%></a>
+                            <a href="#" class="list-group-item list-group-item-action" onclick="getPosts(<%=cid%>)"><%=ss%></a>
                             <%
 
                                 }
@@ -521,24 +521,30 @@
                 </div>
             </div>
         </div>
-        <!--=======================================HOME PAGE MAIN CONTENTS STARTS==================================================================-->
+        <!--=======================================HOME PAGE MAIN CONTENTS ENDS==================================================================-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
         <script src="js/myjavascript.js" type="text/javascript"></script>
         <!--        <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>-->
 
         <script>
-            $(document).ready(function (e) {
-                //
-                //$('#loader').hide();
+               function getPosts(catId){
                 $.ajax({
                     url:"posts.jsp",
+                    data:{cid:catId},
                     success:function(data,textStatus,jqXHR){
                         console.log(data);
                         $('#loader').hide();
                         $("#postContainer").html(data);
                     }
                 })
+            }
+            $(document).ready(function (e) {
+                
+                getPosts(0);
+                //
+                //$('#loader').hide();
+             
                 //alert("loaded");
                 // $('#editform').hide();
 //                   Swal.fire({

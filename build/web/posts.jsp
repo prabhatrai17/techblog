@@ -6,8 +6,17 @@
 
 <%
     PostsDao postDao = new PostsDao(ConnectionProvider.getConnection());
-    List<Posts> allPosts = postDao.getAllPost();
-    for (Posts p : allPosts) {
+    
+    int cid= Integer.parseInt(request.getParameter("cid"));
+    List<Posts> posts=null;
+    if(cid==0){
+    posts=postDao.getAllPost();
+    }
+    else{
+    posts=postDao.getAllPostsById(cid);
+    }
+    
+    for (Posts p : posts) {
 //out.println(p.getTitle());
 
 %>

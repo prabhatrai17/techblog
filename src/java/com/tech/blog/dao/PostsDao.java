@@ -60,5 +60,41 @@ public class PostsDao {
         return allPost;
     }
     
+    public List<Posts> getAllPostsById(int c) throws SQLException{
+        List<Posts> allPostsById= new ArrayList<>();
+        String q="select * from posts where cid=?";
+        
+        PreparedStatement ps= con.prepareStatement(q);
+        ps.setInt(1, c);
+        
+        ResultSet rs=ps.executeQuery();
+        System.out.println("result after posts by id");
+        
+//        while(rs.next()){
+//            System.out.println(rs.getInt("ptitle"));
+//            System.out.println(rs.getInt("pid"));
+//            System.out.println(rs.getInt("cid"));
+//            
+//        }
+         while(rs.next()){
+            int pid= rs.getInt("pid");
+            System.out.println(pid);
+            String title=rs.getString("title");
+            String desc=rs.getString("description");
+            String code=rs.getString("code");
+            int userid=rs.getInt("userid");
+            int cid=rs.getInt("cid");
+            String time=rs.getString("time");
+            
+            Posts post=new Posts(pid,title,desc,code,userid,cid,time);
+            allPostsById.add(post);
+        }
+        
+        
+        
+        return allPostsById;
+        
+    }
+    
     
 }
